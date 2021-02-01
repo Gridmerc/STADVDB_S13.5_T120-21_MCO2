@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Three Tables - Second Query </title>
+        <title> Original Cube Query </title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
@@ -58,34 +58,16 @@
             </div>
         </nav>
         <!-- Heading -->
-        <h1 id="heading"> Three Tables - Second Query </h1>
-        <!-- Form -->
-        <form method="POST" action="/threeTablesTwo">
-            <div class="form-row align-items-center justify-content-center">
-                <div class="col-auto">
-                    <select class="form-control" name="education_type">
-                        <option value="Uneducated"> Uneducated </option>
-                        <option value="High School"> High School </option>
-                        <option value="College"> College </option>
-                        <option value="Graduate"> Graduate </option>
-                        <option value="Post-Graduate">  Post-Graduate </option>
-                        <option value="Doctorate">  Doctorate </option>
-                        <option value="Unknown"> Unknown </option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-outline-warning"> Submit </button>
-                </div>
-            </div>
-        </form>
+        <h1 id="heading"> Original Cube Query</h1>
         <!-- Table -->
         <div class="container">
-            <h2 id="subheading"> Sum of Total Transaction Count from Clients Based From Education Level </h2>
+            <h2 id="subheading"> Average Ride Duration (in minutes) in each station per year [ORIGINAL CUBE] </h2>
             <table class="table table-bordered table-hover table-sm">
                 <thead>
                     <tr class="bg-warning">
-                        <th> Total Transaction Count </th>
-                        <th> Education Level </th>
+                        <th> Year </th>
+                        <th> Station Name </th>
+                        <th> Average Ride Duration in minutes </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,8 +76,9 @@
                             userData.forEach(function(data) {
                     %>
                     <tr class="bg-warning">
-                        <td><%= data.SumofTransactionCount %></td>
-                        <td><%= data.eductype %></td>
+                        <td><%= data.year %></td>
+                        <td><%= data.station_name %></td>
+                        <td><%= data.average_ride_duration_in_minutes %></td>
                     </tr>
                     <% i++ }) %>
                     <% } else { %>

@@ -1,6 +1,6 @@
 const db = require('../database');
 
-const oneTableController = {
+const rollUpController = {
     getRollUp: function(req, res) {
         let sql = 'SELECT year, station_name, round(avg(trip_duration),2)as "average_ride_duration_in_minutes" '+
         "FROM trip_infos ti "+ 
@@ -17,4 +17,4 @@ const oneTableController = {
     }
 }
 
-module.exports = oneTableController;
+module.exports = rollUpController;
