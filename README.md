@@ -76,5 +76,4 @@ STADVDB S13-5 - Members
 5. Sta. Ana, Jose Antonio III T. (jose_antonio_iii_staana@dlsu.edu.ph)
 
 ## Heroku
-[Heroku Link](www.google.com)
-Here is the link of the Heroku deployment. Please note ClearDB has a limitation of 5MB for the database to work, but it will not run 24/7 due to free membership limitations. Please contact the authors if you wish to see the deployed version. If ever the localhost does not work, please contact the authors as we are willing to provide a demo.
+Due to the limitations of resources, the web application is limited to localhost. The reason is the ClearDB, an online database management tool, exceeded the maximum limit for free users. Please contact the members of the group if you wish to have a live demo. Thank you.
