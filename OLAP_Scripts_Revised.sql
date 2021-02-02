@@ -66,3 +66,37 @@ join trip_facts tf
 on ti.trip_id=tf.trip_id
 group by year, month with rollup
 ;
+
+-- original simulated cube
+SELECT year, month, station_name, round(avg(trip_duration),2)as "average ride duration in minutes"
+FROM trip_infos ti 
+join trip_facts tf 
+on ti.trip_id=tf.trip_id
+join stations s
+on s.station_id=tf.from_station_id
+group by year,month, station_name with rollup
+
+union
+
+SELECT year, month, station_name, round(avg(trip_duration),2)as "average ride duration in minutes"
+FROM trip_infos ti 
+join trip_facts tf 
+on ti.trip_id=tf.trip_id
+join stations s
+on s.station_id=tf.from_station_id
+group by month, station_name, year with rollup
+
+union
+
+SELECT year, month, station_name, round(avg(trip_duration),2)as "average ride duration in minutes"
+FROM trip_infos ti 
+join trip_facts tf 
+on ti.trip_id=tf.trip_id
+join stations s
+on s.station_id=tf.from_station_id
+group by station_name, year,month with rollup
+
+order by year IS NULL, year,
+		month IS NULL, month,
+        station_name IS NULL, station_name
+;
