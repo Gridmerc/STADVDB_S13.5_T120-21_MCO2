@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Two Tables - First Query </title>
+        <title> Slice Query </title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
@@ -58,31 +58,30 @@
             </div>
         </nav>
         <!-- Heading -->
-        <h1 id="heading"> Two Tables - First Query </h1>
+        <h1 id="heading"> Slice Query on Year </h1>
         <!-- Form -->
-        <form method="POST" action="/twoTablesOne">
+        <form method="POST" action="/slice">
             <div class="form-row align-items-center justify-content-center">
                 <div class="col-auto">
-                    <select class="form-control" name="card">
-                        <option value="Blue"> Blue </option>
-                        <option value="Silver"> Silver </option>
-                        <option value="Gold"> Gold </option>
-                        <option value="Platinum"> Platinum </option>
-                    </select>
+                    <input class="form-control" type="number" name="year" placeholder="Year" id="userInput">
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-outline-warning"> Submit </button>
+                    <button type="submit" class="btn btn-outline-warning" id="submit"> Submit </button>
                 </div>
+            </div>
+            <div style="margin:auto;">
+                <p style="color: #202020;" id="errorMsg">Invalid input.</p>
             </div>
         </form>
         <!-- Table -->
         <div class="container">
-            <h2 id="subheading"> Client ID and Client Name Based from Card Type </h2>
+            <h2 id="subheading"> Average Ride Duration (in minutes) in each station per month, given a year</h2>
             <table class="table table-bordered table-hover table-sm">
                 <thead>
                     <tr class="bg-warning">
-                        <th> Client ID </th>
-                        <th> Client Name </th>
+                        <th> Month </th>
+                        <th> Station Name </th>
+                        <th> Average Ride Duration in minutes </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,8 +90,9 @@
                             userData.forEach(function(data) {
                     %>
                     <tr class="bg-warning">
-                        <td><%= data.clientID %></td>
-                        <td><%= data.client_name %></td>
+                        <td><%= data.month %></td>
+                        <td><%= data.station_name %></td>
+                        <td><%= data.average_ride_duration_in_minutes %></td>
                     </tr>
                     <% i++ }) %>
                     <% } else { %>

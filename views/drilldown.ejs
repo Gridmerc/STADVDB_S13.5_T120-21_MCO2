@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> One Table - First Query </title>
+        <title> Drill Down Query </title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
@@ -58,37 +58,16 @@
             </div>
         </nav>
         <!-- Heading -->
-        <h1 id="heading"> One Table - First Query </h1>
-        <!-- Form -->
-        <form method="POST" action="/oneTableOne">
-            <div class="form-row align-items-center justify-content-center">
-                <div class="col-auto">
-                    <select class="form-control" name="comparison">
-                        <option value=">"> More Than </option>
-                        <option value="="> Equal To </option>
-                        <option value="<"> Less Than </option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <input class="form-control" type="number" name="age" placeholder="Age" id="userInput">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-outline-warning" id="submit"> Submit </button>
-                </div>
-            </div>
-            <div style="margin:auto;">
-                    <p style="color: #202020;" id="errorMsg">Invalid input.</p>
-            </div>
-        </form>
+        <h1 id="heading"> Drill Down Query </h1>
         <!-- Table -->
         <div class="container">
-            <h2 id="subheading"> Client Name, Age and Marital Status Based from Age </h2>
+            <h2 id="subheading"> Average Ride Duration (in minutes) in each station per year [DRILL DOWN]</h2>
             <table class="table table-bordered table-hover table-sm">
                 <thead>
                     <tr class="bg-warning">
-                        <th> Client Name </th>
-                        <th> Client Age </th>
-                        <th> Marital Status </th>
+                        <th> Year </th>
+                        <th> Station Name </th>
+                        <th> Average Ride Duration in minutes </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,9 +76,9 @@
                             userData.forEach(function(data) {
                     %>
                     <tr class="bg-warning">
-                        <td><%= data.client_name %></td>
-                        <td><%= data.age %></td>
-                        <td><%= data.marital_status %></td>
+                        <td><%= data.year %></td>
+                        <td><%= data.station_name %></td>
+                        <td><%= data.average_ride_duration_in_minutes %></td>
                     </tr>
                     <% i++ }) %>
                     <% } else { %>
